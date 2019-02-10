@@ -17,6 +17,7 @@ protocol ResultPresentableListener: class {
 
     func getResult()
     func endPaymentFlow()
+    func didNavigateBack()
 }
 
 final class ResultViewController: CustomViewController, ResultPresentable, ResultViewControllable {
@@ -44,6 +45,14 @@ final class ResultViewController: CustomViewController, ResultPresentable, Resul
         title = "Result"
         setupSummaryTableView()
         listener?.getResult()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if isMovingFromParent {
+            listener?.didNavigateBack()
+        }
     }
 
     func setupSummaryTableView() {

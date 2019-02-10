@@ -22,6 +22,7 @@ protocol ResultPresentable: Presentable, LoadingPresentable {
 protocol ResultListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     func didEndPaymentFlow()
+    func didNavigateBack()
 }
 
 final class ResultInteractor: PresentableInteractor<ResultPresentable>, ResultInteractable, ResultPresentableListener {
@@ -58,5 +59,9 @@ final class ResultInteractor: PresentableInteractor<ResultPresentable>, ResultIn
 
     func endPaymentFlow() {
         listener?.didEndPaymentFlow()
+    }
+
+    func didNavigateBack() {
+        listener?.didNavigateBack()
     }
 }

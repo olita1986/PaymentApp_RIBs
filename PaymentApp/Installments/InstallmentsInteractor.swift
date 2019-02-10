@@ -22,6 +22,7 @@ protocol InstallmentsPresentable: Presentable {
 protocol InstallmentsListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     func didSelectInstallment()
+    func didNavigateBack()
 }
 
 final class InstallmentsInteractor: PresentableInteractor<InstallmentsPresentable>, InstallmentsInteractable, InstallmentsPresentableListener {
@@ -62,5 +63,9 @@ final class InstallmentsInteractor: PresentableInteractor<InstallmentsPresentabl
         let installment = installmentsResponse[0].payerCosts[index]
         _ = paymentFlowBuilder.withSelectedInstallment(installment: installment)
         listener?.didSelectInstallment()
+    }
+
+    func didNavigateBack() {
+        listener?.didNavigateBack()
     }
 }

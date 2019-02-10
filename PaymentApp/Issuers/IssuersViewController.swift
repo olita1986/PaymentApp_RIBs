@@ -16,6 +16,7 @@ protocol IssuersPresentableListener: class {
     // interactor class.
     func getIssuer()
     func issuerSelected(withIndex index: Int)
+    func didNavigateBack()
 }
 
 final class IssuersViewController: CustomViewController, IssuersPresentable, IssuersViewControllable {
@@ -43,6 +44,14 @@ final class IssuersViewController: CustomViewController, IssuersPresentable, Iss
         setupViews()
         title = "Issuers"
         listener?.getIssuer()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if isMovingFromParent {
+            listener?.didNavigateBack()
+        }
     }
 
     private func setupViews() {

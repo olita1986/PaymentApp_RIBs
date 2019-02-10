@@ -32,12 +32,12 @@ final class RootViewController: UINavigationController, RootPresentable, RootVie
         popToRootViewController(animated: true)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.backBarButtonItem?.action = #selector(printSomething)
+    func popView() {
+        popViewController(animated: true)
     }
 
-    @objc func printSomething() {
-        print("hello")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //navigationItem.backBarButtonItem?.action = #selector(printSomething)
     }
 }

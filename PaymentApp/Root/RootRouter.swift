@@ -18,6 +18,7 @@ protocol RootViewControllable: ViewControllable {
     func showView(view: ViewControllable)
     func pushView(view: ViewControllable)
     func popToRoot()
+    func popView()
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
@@ -29,7 +30,7 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     private let installmentsBuilder: InstallmentsBuilder
     private let resultBuilder: ResultBuilder
 
-    private var currentChild: ViewableRouting?
+    private var currentChild: Routing?
 
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
@@ -54,6 +55,14 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     }
 
     // Routes
+
+    func routeToPrevious() {
+        if let child = currentChild {
+            detachChild(child)
+            currentChild = nil
+        }
+        currentChild = children.last
+    }
 
     func routeToStart() {
         for child in self.children {

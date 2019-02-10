@@ -16,6 +16,7 @@ protocol InstallmentsPresentableListener: class {
     // interactor class.
     func getInstallments()
     func installmentSelected(withIndex index: Int)
+    func didNavigateBack()
 }
 
 final class InstallmentsViewController: UIViewController, InstallmentsPresentable, InstallmentsViewControllable {
@@ -34,6 +35,14 @@ final class InstallmentsViewController: UIViewController, InstallmentsPresentabl
         title = "Installments"
         setupViews()
         listener?.getInstallments()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if isMovingFromParent {
+            listener?.didNavigateBack()
+        }
     }
 
     private func setupViews() {

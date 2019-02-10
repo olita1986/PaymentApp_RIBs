@@ -22,6 +22,7 @@ protocol IssuersPresentable: Presentable, LoadingPresentable {
 protocol IssuersListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     func didSelectIssuer(withInstallments installments: InstallmentsResponse)
+    func didNavigateBack()
 }
 
 final class IssuersInteractor: PresentableInteractor<IssuersPresentable>, IssuersInteractable, IssuersPresentableListener {
@@ -54,6 +55,10 @@ final class IssuersInteractor: PresentableInteractor<IssuersPresentable>, Issuer
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+
+    func didNavigateBack() {
+        listener?.didNavigateBack()
     }
 
     func getIssuer() {

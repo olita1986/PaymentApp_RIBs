@@ -16,6 +16,7 @@ protocol PaymentMethodsPresentableListener: class {
     // interactor class.
     func paymentMethodSelected(withIndex index: Int)
     func getPaymentMethods()
+    func didNavigateBack()
 }
 
 final class PaymentMethodsViewController: CustomViewController, PaymentMethodsPresentable, PaymentMethodsViewControllable {
@@ -42,6 +43,14 @@ final class PaymentMethodsViewController: CustomViewController, PaymentMethodsPr
         setupViews()
         title = "Payment Methods"
         listener?.getPaymentMethods()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if isMovingFromParent {
+            listener?.didNavigateBack()
+        }
     }
 
     private func setupViews() {

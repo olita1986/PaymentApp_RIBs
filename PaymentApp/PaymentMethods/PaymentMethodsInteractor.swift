@@ -22,6 +22,7 @@ protocol PaymentMethodsPresentable: Presentable, LoadingPresentable {
 protocol PaymentMethodsListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     func didSelectPaymentMethod(withIssuers issuers: BanksResponse)
+    func didNavigateBack()
 }
 
 final class PaymentMethodsInteractor: PresentableInteractor<PaymentMethodsPresentable>, PaymentMethodsInteractable, PaymentMethodsPresentableListener {
@@ -54,6 +55,10 @@ final class PaymentMethodsInteractor: PresentableInteractor<PaymentMethodsPresen
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+
+    func didNavigateBack() {
+        listener?.didNavigateBack()
     }
 
     func paymentMethodSelected(withIndex index: Int) {

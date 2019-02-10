@@ -16,6 +16,7 @@ protocol RootRouting: ViewableRouting {
     func routeToInstallments(withInstallments installments: InstallmentsResponse)
     func routeToResult()
     func routeToStart()
+    func routeToPrevious()
 }
 
 protocol RootPresentable: Presentable {
@@ -68,5 +69,9 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     func didEndPaymentFlow() {
         router?.routeToStart()
+    }
+
+    func didNavigateBack() {
+        router?.routeToPrevious()
     }
 }
