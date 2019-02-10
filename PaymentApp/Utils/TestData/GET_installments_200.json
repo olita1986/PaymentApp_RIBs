@@ -1,0 +1,98 @@
+[
+    {
+        "payment_method_id": "visa",
+        "payment_type_id": "credit_card",
+        "issuer": {
+            "id": "288",
+            "name": "Tarjeta Shopping",
+            "secure_thumbnail": "https://www.mercadopago.com/org-img/MP3/API/logos/288.gif",
+            "thumbnail": "http://img.mlstatic.com/org-img/MP3/API/logos/288.gif"
+        },
+        "processing_mode": "aggregator",
+        "merchant_account_id": null,
+        "payer_costs": [
+            {
+                "installments": 1,
+                "installment_rate": 0,
+                "discount_rate": 0,
+                "labels": [
+                    "CFT_0,00%|TEA_0,00%"
+                ],
+                "installment_rate_collector": [
+                    "MERCADOPAGO"
+                ],
+                "min_allowed_amount": 0,
+                "max_allowed_amount": 250000,
+                "recommended_message": "1 cuota de $ 2.000,00 ($ 2.000,00)",
+                "installment_amount": 2000,
+                "total_amount": 2000
+            },
+            {
+                "installments": 3,
+                "installment_rate": 24.2,
+                "discount_rate": 0,
+                "labels": [
+                    "CFT_276,10%|TEA_203,76%"
+                ],
+                "installment_rate_collector": [
+                    "MERCADOPAGO"
+                ],
+                "min_allowed_amount": 2,
+                "max_allowed_amount": 250000,
+                "recommended_message": "3 cuotas de $ 828,00 ($ 2.484,00)",
+                "installment_amount": 828,
+                "total_amount": 2484
+            },
+            {
+                "installments": 6,
+                "installment_rate": 43.56,
+                "discount_rate": 0,
+                "labels": [
+                    "CFT_266,20%|TEA_199,16%",
+                    "recommended_interest_installment_with_some_banks"
+                ],
+                "installment_rate_collector": [
+                    "MERCADOPAGO"
+                ],
+                "min_allowed_amount": 3,
+                "max_allowed_amount": 250000,
+                "recommended_message": "6 cuotas de $ 478,53 ($ 2.871,20)",
+                "installment_amount": 478.53,
+                "total_amount": 2871.2
+            },
+            {
+                "installments": 9,
+                "installment_rate": 62.19,
+                "discount_rate": 0,
+                "labels": [
+                    "CFT_247,77%|TEA_187,82%"
+                ],
+                "installment_rate_collector": [
+                    "MERCADOPAGO"
+                ],
+                "min_allowed_amount": 5,
+                "max_allowed_amount": 250000,
+                "recommended_message": "9 cuotas de $ 360,42 ($ 3.243,80)",
+                "installment_amount": 360.42,
+                "total_amount": 3243.8
+            },
+            {
+                "installments": 12,
+                "installment_rate": 84.7,
+                "discount_rate": 0,
+                "labels": [
+                    "recommended_installment",
+                    "CFT_249,28%|TEA_190,24%"
+                ],
+                "installment_rate_collector": [
+                    "MERCADOPAGO"
+                ],
+                "min_allowed_amount": 6,
+                "max_allowed_amount": 250000,
+                "recommended_message": "12 cuotas de $ 307,83 ($ 3.694,00)",
+                "installment_amount": 307.83,
+                "total_amount": 3694
+            }
+        ]
+    }
+]
